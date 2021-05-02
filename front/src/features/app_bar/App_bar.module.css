@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    background-color: black;
+    justify-content: space-between;
+    padding-right: 100px;
+}
+
+.header_logo{
+    height: 40px;
+}
+
+.header_url {
+    display: flex;
+    line-height: 40px;
+}
+
+@media (max-width: 1000px) {
+    .header_url {
+      display: none;
+    }
+  }
+
+.header_font {
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+}
+
+.header_font:link {
+    color: deeppink;
+}
