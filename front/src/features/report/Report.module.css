@@ -1,0 +1,20 @@
+.all {
+    margin: 20px;
+}
+
+.target_company_box{
+    margin: 15px;
+}
+
+.target_company_name{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.company_list_box{
+    margin: 20px;
+}
+
+.company_link:hover {
+    color: deeppink;
+}

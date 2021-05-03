@@ -49,6 +49,7 @@ const Search_bar = ({company_list}) => {
                     root: styles.inputRoot,
                     input: styles.inputInput,
                 }}
+                style={{'width': '200px'}}
                 inputProps={{ 'aria-label': 'search' }}
                 onKeyPress={e => {
                     if (e.key == 'Enter') {

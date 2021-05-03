@@ -1,0 +1,14 @@
+.all {
+    margin: 20px;
+}
+
+.main_box {
+    margin: 10px;
+    position: relative;
+   
+}
+
+.sigh {
+   position: absolute;
+   right: 0;
+}

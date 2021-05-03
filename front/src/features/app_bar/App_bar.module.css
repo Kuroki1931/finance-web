@@ -26,6 +26,6 @@
     color: #fff;
 }
 
-.header_font:link {
+.header_font:hover {
     color: deeppink;
 }

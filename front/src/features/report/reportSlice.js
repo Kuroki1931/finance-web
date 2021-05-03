@@ -20,6 +20,14 @@ export const fetchAsyncCompnay_listGet = createAsyncThunk("company_list/get", as
   return res.data;
 });
 
+export const fetchAsyncCompnayGet = createAsyncThunk("company/get", async (uuid) => {
+  const res = await axios.get(`${apiUrl}api/company/${uuid}/`, {
+    headers: {
+    },
+  });
+  return res.data;
+});
+
 
 const pdfSlice = createSlice({
     name: 'pdf_info',
@@ -39,10 +47,13 @@ const pdfSlice = createSlice({
               id: '',
               company_name: '',
               company_number: 0,
-              
-          },
-      ],
-
+          },  
+        ],
+        company: {
+          id: '',
+          company_name: 'Please select company',
+          company_number: '',
+        }
     },
     reducers: {
       
@@ -54,12 +65,16 @@ const pdfSlice = createSlice({
         builder.addCase(fetchAsyncCompnay_listGet.fulfilled, (state, action) => {
           state.company_list = action.payload;
         });
+        builder.addCase(fetchAsyncCompnayGet.fulfilled, (state, action) => {
+          state.company = action.payload;
+        });
     },
 })
 
 export const {} = pdfSlice.actions;
 export const selectPDF_list = (state) => state.pdf_info.pdf_list;
 export const selectCompany_list = (state) => state.pdf_info.company_list;
+export const selectCompany = (state) => state.pdf_info.company;
 
 export default pdfSlice.reducer;
 
