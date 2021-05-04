@@ -4,7 +4,9 @@ import React from 'react'
 const Question_box = () => {
     return (
         <div className={classes.all}>
-            質問ボックス
+            <div className={classes.head}>
+                質問箱
+            </div>
         </div>
     )
 }

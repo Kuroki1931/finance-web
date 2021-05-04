@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button';
 const Question = () => {
     return (
         <div className={classes.all}>
-            <div>
+            <div className={classes.head}>
                 お問い合わせ
             </div>
             <div　className={classes.form_all}>

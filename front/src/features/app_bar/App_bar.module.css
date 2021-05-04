@@ -17,7 +17,7 @@
     line-height: 40px;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
     .wide_header_url {
       display: none;
    }
@@ -40,7 +40,7 @@
     background-color: black;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 1100px) {
     .narrow_header_url {
       display: none;
    }

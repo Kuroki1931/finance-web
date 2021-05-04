@@ -36,11 +36,7 @@ const Report = (props) => {
         dispatch(fetchAsyncCompnayGet(uuid))
     }, [dispatch, uuid]);
 
-    useEffect(() => {
-        if (!token) {
-            window.location.href = '/report/';
-        }
-    }, [token]);
+
     
     const target_company = pdf_list.filter((output) => {
         return output.company == uuid

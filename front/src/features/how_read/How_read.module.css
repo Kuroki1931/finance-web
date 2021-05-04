@@ -3,6 +3,11 @@
     position: relative;
 }
 
+.head {
+    border-bottom: solid 2px black;
+    font-size: 20px;
+}
+
 .main_box {
     margin: 10px;
     position: relative;

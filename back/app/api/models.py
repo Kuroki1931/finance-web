@@ -86,3 +86,30 @@ class PDF(models.Model):
 
     def __str__(self):
         return self.company.company_name + ' ' + self.pdf_title
+
+class Question(models.Model):
+    id = models.UUIDField(default=uuid.uuid4,
+                          primary_key=True, editable=False)
+    question = models.CharField(max_length=500, blank=True)
+    title = models.CharField(max_length=50, blank=True)
+    regist_date = models.DateTimeField(default=timezone.now)
+   
+
+    class Meta:
+        ordering = ('regist_date', ) 
+
+    def __str__(self):
+        return self.title + ' ' + str(self.regist_date)
+
+class Ask(models.Model):
+    id = models.UUIDField(default=uuid.uuid4,
+                          primary_key=True, editable=False)
+    askto = models.ForeignKey(Question, on_delete=models.CASCADE, null=True)
+    ask = models.CharField(max_length=500, blank=True)
+    regist_date = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ('regist_date', ) 
+
+    def __str__(self):
+        return self.askto.title + ' ' + str(self.regist_date)

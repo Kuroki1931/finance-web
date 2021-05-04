@@ -4,7 +4,7 @@ import React from 'react'
 const How_read = () => {
     return (
         <div className={classes.all}>
-            <div>
+            <div className={classes.head}>
                 レポートの読み方
             </div>
             <div className={classes.main_box}>
