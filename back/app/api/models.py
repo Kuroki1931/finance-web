@@ -60,8 +60,11 @@ class Company(models.Model):
         default=0,
     )
 
+    class Meta:
+        ordering = ('company_number', ) 
+
     def __str__(self):
-        return self.company_name
+        return self.company_name + ' ' + str(self.company_number)
 
 class PDF(models.Model):
     id = models.UUIDField(default=uuid.uuid4,
@@ -78,5 +81,8 @@ class PDF(models.Model):
         )
     company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True)
 
+    class Meta:
+        ordering = ('company', 'pdf_type', 'regist_date' ) 
+
     def __str__(self):
-        return self.pdf_title + ' ' + self.company.company_name
+        return self.company.company_name + ' ' + self.pdf_title

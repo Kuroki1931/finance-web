@@ -1,5 +1,6 @@
 .all {
-    margin: 20px;
+    margin: 20px 20px 70px 20px;
+    position: relative;
 }
 
 .main_box {
@@ -11,4 +12,5 @@
 .sigh {
    position: absolute;
    right: 0;
+   margin: 20px;
 }

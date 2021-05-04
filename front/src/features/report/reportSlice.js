@@ -47,13 +47,14 @@ const pdfSlice = createSlice({
               id: '',
               company_name: '',
               company_number: 0,
-          },  
+          },   
         ],
         company: {
           id: '',
           company_name: 'Please select company',
           company_number: '',
-        }
+        },
+        error: '',
     },
     reducers: {
       
@@ -61,6 +62,10 @@ const pdfSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(fetchAsyncPDF_listGet.fulfilled, (state, action) => {
           state.pdf_list = action.payload;
+          state.error = '';
+        });
+        builder.addCase(fetchAsyncPDF_listGet.rejected, (state, action) => {
+          state.error = '閲覧は有料会員のみとなります';
         });
         builder.addCase(fetchAsyncCompnay_listGet.fulfilled, (state, action) => {
           state.company_list = action.payload;
@@ -75,6 +80,7 @@ export const {} = pdfSlice.actions;
 export const selectPDF_list = (state) => state.pdf_info.pdf_list;
 export const selectCompany_list = (state) => state.pdf_info.company_list;
 export const selectCompany = (state) => state.pdf_info.company;
+export const selectError = (state) => state.pdf_info.error;
 
 export default pdfSlice.reducer;
 
