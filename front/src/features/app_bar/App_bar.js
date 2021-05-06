@@ -17,12 +17,8 @@ const links_info = [
     url: '/how_read/',
   },
   {
-    title: '日本最高基盤とは',
+    title: '会社概要',
     url: '/',
-  },
-  {
-    title: '東大金融会とは',
-    url: '/ut_finance/',
   },
   {
     title: 'お問い合わせ',

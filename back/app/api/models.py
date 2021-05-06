@@ -82,7 +82,7 @@ class PDF(models.Model):
     company = models.ForeignKey(Company, on_delete=models.CASCADE, null=True)
 
     class Meta:
-        ordering = ('company', 'pdf_type', 'regist_date' ) 
+        ordering = ('company', 'pdf_type', '-regist_date' ) 
 
     def __str__(self):
         return self.company.company_name + ' ' + self.pdf_title

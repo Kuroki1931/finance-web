@@ -29,14 +29,14 @@ const Login = (props) => {
                 props.cookies.set("current-token", result.payload.access, {maxAge: 3600, path: '/'});
             }
         } else {
-            const result = await dispatch(fetchAsyncRegister(authen));
+            // const result = await dispatch(fetchAsyncRegister(authen));
 
-            if (fetchAsyncRegister.fulfilled.match(result)) {
-                const result = await dispatch(fetchAsyncLogin(authen))
-            }
-            if (fetchAsyncLogin.fulfilled.match(result)) {
-                props.cookies.set("current-token", result.payload.access, {maxAge: 3600, path: '/'});
-            }
+            // if (fetchAsyncRegister.fulfilled.match(result)) {
+            //     const result = await dispatch(fetchAsyncLogin(authen))
+            // }
+            // if (fetchAsyncLogin.fulfilled.match(result)) {
+            //     props.cookies.set("current-token", result.payload.access, {maxAge: 3600, path: '/'});
+            // }
         }
     };
 
@@ -72,12 +72,12 @@ const Login = (props) => {
                     {isLoginView ? "Login" : "Create"}
                 </Button>
                 </div>
-                <span
+                {/* <span
                 className={styles.switchText}
                 onClick={() => dispatch(toggleMode())}
                 >
                 {isLoginView ? "Create Account ?" : "Back to Login"}
-                </span>
+                </span> */}
             </div>
         </div>
     );
