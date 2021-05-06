@@ -3,6 +3,9 @@ import { useSelector, useDispatch } from "react-redux";
 import { withCookies } from "react-cookie";
 import { Link } from 'react-router-dom';
 import classes from "./Report.module.css";
+import Search_bar from './Search_bar';
+import Search_bar_name from './Search_bar_name';
+import Button from '@material-ui/core/Button';
 
 
 import {
@@ -14,7 +17,7 @@ import {
     fetchAsyncCompnayGet,
     selectError,
 } from "./reportSlice";
-import Search_bar from './Search_bar';
+
 
 const Report = (props) => {
     const dispatch = useDispatch();
@@ -55,9 +58,16 @@ const Report = (props) => {
 
     return (
         <div className={classes.all}>
+            <div className={classes.head}>
+                レポート
+            </div>
             <div>
                 <Search_bar company_list={company_list}/>
             </div>
+            <div>
+                <Search_bar_name company_list={company_list}/>
+            </div>
+            
             <div>
                 <div className={classes.target_company_box}>
                  <div className={classes.target_company_name}>{company.company_name} {company.company_number} </div>
@@ -69,6 +79,9 @@ const Report = (props) => {
                             {basic_report.map((each_pdf) => (
                                 <div key={each_pdf.id} className={classes.report_box}>
                                     <a href={each_pdf.pdf}>{each_pdf.regist_date.slice(0, 10)}{each_pdf.pdf_title}</a>
+                                    <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
+                                        <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
+                                    </Button>
                                 </div>
                             ))}
                         </div>
@@ -81,6 +94,9 @@ const Report = (props) => {
                             {deep_report.map((each_pdf) => (
                                 <div key={each_pdf.id} className={classes.report_box}>
                                     <a href={each_pdf.pdf}>{each_pdf.regist_date.slice(0, 10)}{each_pdf.pdf_title}</a>
+                                    <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
+                                        <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
+                                    </Button>
                                 </div>
                             ))}
                         </div>
@@ -93,6 +109,9 @@ const Report = (props) => {
                             {short_report.map((each_pdf) => (
                                 <div key={each_pdf.id} className={classes.report_box}>
                                     <a href={each_pdf.pdf}>{each_pdf.regist_date.slice(0, 10)}{each_pdf.pdf_title}</a>
+                                    <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
+                                        <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
+                                    </Button>
                                 </div>
                             ))}
                         </div>
@@ -105,10 +124,10 @@ const Report = (props) => {
                     {company_list.map((company) => (
                         <ul>
                             <li>
-                                <Link key={company.id} to={`/report/${company.id}/`} style={{color: '#424242' }}>
+                                <Link key={company.id} to={`/report/${company.id}/`} style={{color: '#424242' }}>                                  
                                     <dic className={classes.company_link}>
-                                        {company.company_name} {company.company_number} 
-                                    </dic>
+                                        {company.company_number} {company.company_name}
+                                    </dic>                                 
                                 </Link>
                             </li>
                         </ul>

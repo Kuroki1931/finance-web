@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import SearchIcon from '@material-ui/icons/Search';
 import classes from "./Search_bar.module.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -35,7 +34,7 @@ const Search_bar = ({company_list}) => {
 
     return (
         <div className={classes.search_bar_head}>
-            企業レポート
+        　番号検索
             <Autocomplete
                 inputValue={inputValue}
                 onInputChange={(event, newInputValue) => {
@@ -57,7 +56,6 @@ const Search_bar = ({company_list}) => {
                     window.location.href = `/report/${company_name_id[inputValue]}/`
                 }}}
             />   
-            <SearchIcon />
         </div>
     )
 }

@@ -1,0 +1,38 @@
+.all {
+    margin: 20px 20px 70px 20px;
+    position: relative;
+}
+
+.target_company_box{
+    margin: 15px;
+}
+
+.target_company_name{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.report_head{
+    font-size: 20px;
+    margin: 10px;
+}
+
+.report_box{
+    border-bottom: solid 1px black;
+    border-top: solid 1px black;
+    padding: 10px;
+    margin: 0 10px 40px 10px;
+}
+
+.error{
+    margin: 5px;
+    color: red;
+}
+
+.company_list_box{
+    margin: 20px;
+}
+
+.company_link:hover {
+    color: deeppink;
+}

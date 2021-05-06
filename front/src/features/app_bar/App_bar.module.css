@@ -1,3 +1,9 @@
+.all {
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
 .header {
     background-color: black;
     padding-right: 100px;
