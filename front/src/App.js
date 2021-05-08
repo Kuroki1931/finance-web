@@ -12,25 +12,55 @@ import Report from './features/report/Report';
 import Login from './features/login/Login';
 import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from "@stripe/stripe-js/pure";
+import { createContext } from 'react';
 
+export const FinanceContext = createContext()
 
 
 
 function App() {
+  const links_info = [
+    {
+      title: '企業レポート',
+      url: '/report/',
+    },
+    {
+      title: '読み方',
+      url: '/how_read/',
+    },
+    {
+      title: '会社概要',
+      url: '/',
+    },
+    {
+      title: 'お問い合わせ',
+      url: '/question/',
+    },
+    {
+      title: 'ログイン',
+      url: '/login/',
+    },
+    {
+      title: '登録',
+      url: '/register/',
+    },
+  ]
   return (
     <div className="App">
         <Router>
-          <App_bar />
-          <Route exact path='/question/' component={Question}/>
-          <Route exact path='/how_read/' component={How_read}/>
-          <Route exact path='/' component={Our_company}/>
-          <Route exact path='/report/*/' component={Report}/>
-          <Route exact path='/login/' component={Login}/>
-          <Route exact path='/register/' component={Register}/>
-          <Elements stripe={stripePromise}>
-              <Route exact path='/register/payment/' component={Payment}/>
-          </Elements>
-          <Footer />
+          <FinanceContext.Provider value={{links_info}}>
+            <App_bar />
+            <Route exact path='/question/' component={Question}/>
+            <Route exact path='/how_read/' component={How_read}/>
+            <Route exact path='/' component={Our_company}/>
+            <Route exact path='/report/*/' component={Report}/>
+            <Route exact path='/login/' component={Login}/>
+            <Route exact path='/register/' component={Register}/>
+            <Elements stripe={stripePromise}>
+                <Route exact path='/register/payment/' component={Payment}/>
+            </Elements>
+            <Footer />
+          </FinanceContext.Provider>
         </Router>
     </div>
   );

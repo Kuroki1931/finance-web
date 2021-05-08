@@ -7,6 +7,7 @@ import Search_bar from './Search_bar';
 import Search_bar_name from './Search_bar_name';
 import Button from '@material-ui/core/Button';
 import head_icon from './street.jpeg'
+import Card from '@material-ui/core/Card';
 
 
 import {
@@ -40,8 +41,6 @@ const Report = (props) => {
         dispatch(fetchAsyncCompnayGet(uuid))
     }, [dispatch, uuid]);
 
-
-    
     const target_company = pdf_list.filter((output) => {
         return output.company == uuid
     })
@@ -119,16 +118,13 @@ const Report = (props) => {
                         </div>
                     </div>
                     <div className={classes.company_list_box}>
-                        {company_list.map((company) => (
-                            <ul>
-                                <li>
-                                    <Link key={company.id} to={`/report/${company.id}/`} style={{color: '#424242' }}>                                  
-                                        <dic className={classes.company_link}>
-                                            {company.company_number} {company.company_name}
-                                        </dic>                                 
-                                    </Link>
-                                </li>
-                            </ul>
+                        {company_list.map((company) => (       
+                            <Link key={company.id} to={`/report/${company.id}/`} style={{textDecoration: 'none'}}>                                  
+                                <Card className={classes.company_link}>
+                                    <div className={classes.company_num}>{company.company_number}</div>
+                                    <div>{company.company_name}</div>
+                                </Card>                                 
+                            </Link>
                         ))}
                     </div>
                 </div>

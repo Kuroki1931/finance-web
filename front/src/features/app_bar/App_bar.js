@@ -1,40 +1,15 @@
 import classes from "./App_bar.module.css";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from 'react-router-dom';
 import footer_logo from './東大金融研究会_ロゴ.png';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
-
-const links_info = [
-  {
-    title: '企業レポート',
-    url: '/report/',
-  },
-  {
-    title: '読み方',
-    url: '/how_read/',
-  },
-  {
-    title: '会社概要',
-    url: '/',
-  },
-  {
-    title: 'お問い合わせ',
-    url: '/question/',
-  },
-  {
-    title: 'ログイン',
-    url: '/login/',
-  },
-  {
-    title: '登録',
-    url: '/register/',
-  },
-]
+import { FinanceContext } from "../../App";
 
 const App_bar = () => {
+  const { links_info } = useContext(FinanceContext);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = (event) => {

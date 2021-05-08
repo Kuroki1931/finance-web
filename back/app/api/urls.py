@@ -1,17 +1,17 @@
 from rest_framework import routers
 from django.urls import path
 from django.conf.urls import include
-from .views import PDFViewSet, CreateUserView, CompanyViewSet, QuestionViewSet, AskViewSet, save_stripe_info
+from . import views
 from django.conf.urls import url
 
 router = routers.DefaultRouter()
-router.register('pdf', PDFViewSet)
-router.register('company', CompanyViewSet)
-router.register('question', QuestionViewSet)
-router.register('ask', AskViewSet)
+router.register('pdf', views.PDFViewSet)
+router.register('company', views.CompanyViewSet)
+router.register('question', views.QuestionViewSet)
+router.register('ask', views.AskViewSet)
 
 urlpatterns = [
-    path('create/', CreateUserView.as_view(), name='create'),
+    path('create/', views.CreateUserView.as_view(), name='create'),
     path('', include(router.urls)),
-    url(r'^save-stripe-info/$', save_stripe_info),
+    url(r'^save-stripe-info/$', views.save_stripe_info),
 ]

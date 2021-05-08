@@ -1,16 +1,32 @@
-.all{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: 2;
+.all {
 }
 
 .footer_box {
-  height: 50px;
   background-color: black;
+  display: flex;
+  padding: 20px;
 }
 
 .logo {
   width: 200px;
   margin: 5px;
 }
+
+.about_us_box {
+  margin: 10px;
+}
+
+.top_font {
+  color:coral
+}
+
+.link_font {
+  color: #fff;
+  font-size: 12px;
+}
+
+.link_font:hover {
+  color: deeppink;
+}
+
+

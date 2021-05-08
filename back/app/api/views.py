@@ -78,3 +78,6 @@ class AskViewSet(viewsets.ModelViewSet):
     queryset = Ask.objects.all()
     serializer_class = AskSerializer
 
+
+
+

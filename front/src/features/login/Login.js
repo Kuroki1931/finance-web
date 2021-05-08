@@ -62,6 +62,7 @@ const Login = (props) => {
                     onChange={(e) => dispatch(editPassword(e.target.value))}
                     required
                 />
+                <a href='http://localhost:8000/accounts/password_reset_form/' className={styles.forget_pas}>Forget password</a>
                 <div className={styles.switch}>
                 <Button
                     variant="contained"
