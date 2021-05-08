@@ -6,6 +6,7 @@ import classes from "./Report.module.css";
 import Search_bar from './Search_bar';
 import Search_bar_name from './Search_bar_name';
 import Button from '@material-ui/core/Button';
+import head_icon from './street.jpeg'
 
 
 import {
@@ -56,77 +57,80 @@ const Report = (props) => {
     
 
     return (
-        <div className={classes.all}>
-            <div className={classes.head}>
-                レポート
+        <div>
+            <div className={classes.head_box}>
+                <img src={head_icon} className={classes.head_icon}/>
+                <div className={classes.head_font}>企業レポート</div>
             </div>
-            <div>
-                <Search_bar company_list={company_list}/>
-            </div>
-            <div>
-                <Search_bar_name company_list={company_list}/>
-            </div>
-            
-            <div>
-                <div className={classes.target_company_box}>
-                 <div className={classes.target_company_name}>{company.company_name} {company.company_number} </div>
-                    {basic_report != 0 &&
-                        <div>
-                            <div className={classes.report_head}>
-                                シンプルベーシックレポート
-                            </div>
-                            <div className={classes.report_box}>
-                                <a href={basic_report[0].pdf}>{basic_report[0].regist_date.slice(0, 10)}{basic_report[0].pdf_title}</a>
-                                <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
-                                    <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
-                                </Button>
-                            </div>
-                        </div>
-                    }
-                    {deep_report != 0 &&
-                        <div>
-                            <div className={classes.report_head}>
-                                ディープレポート
-                            </div>
-                            <div className={classes.report_box}>
-                                <a href={deep_report[0].pdf}>{deep_report[0].regist_date.slice(0, 10)}{deep_report[0].pdf_title}</a>
-                                <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
-                                    <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
-                                </Button>
-                            </div>
-                        </div>
-                    }
-                    {short_report != 0 &&
-                        <div>
-                            <div className={classes.report_head}>
-                                ショートレポート
-                            </div>
-                            {short_report.map((each_pdf) => (
-                                <div key={each_pdf.id} className={classes.report_box}>
-                                    <a href={each_pdf.pdf}>{each_pdf.regist_date.slice(0, 10)}{each_pdf.pdf_title}</a>
+            <div className={classes.body_all}>
+                <div>
+                    <Search_bar company_list={company_list}/>
+                </div>
+                <div>
+                    <Search_bar_name company_list={company_list}/>
+                </div>
+                
+                <div>
+                    <div className={classes.target_company_box}>
+                    <div className={classes.target_company_name}>{company.company_name} {company.company_number} </div>
+                        {basic_report != 0 &&
+                            <div>
+                                <div className={classes.report_head}>
+                                    シンプルベーシックレポート
+                                </div>
+                                <div className={classes.report_box}>
+                                    <a href={basic_report[0].pdf}>{basic_report[0].regist_date.slice(0, 10)}{basic_report[0].pdf_title}</a>
                                     <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
                                         <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
                                     </Button>
                                 </div>
-                            ))}
+                            </div>
+                        }
+                        {deep_report != 0 &&
+                            <div>
+                                <div className={classes.report_head}>
+                                    ディープレポート
+                                </div>
+                                <div className={classes.report_box}>
+                                    <a href={deep_report[0].pdf}>{deep_report[0].regist_date.slice(0, 10)}{deep_report[0].pdf_title}</a>
+                                    <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
+                                        <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
+                                    </Button>
+                                </div>
+                            </div>
+                        }
+                        {short_report != 0 &&
+                            <div>
+                                <div className={classes.report_head}>
+                                    ショートレポート
+                                </div>
+                                {short_report.map((each_pdf) => (
+                                    <div key={each_pdf.id} className={classes.report_box}>
+                                        <a href={each_pdf.pdf}>{each_pdf.regist_date.slice(0, 10)}{each_pdf.pdf_title}</a>
+                                        <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
+                                            <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
+                                        </Button>
+                                    </div>
+                                ))}
+                            </div>
+                        }
+                        <div className={classes.error}>
+                            {error}
                         </div>
-                    }
-                    <div className={classes.error}>
-                        {error}
                     </div>
-                </div>
-                <div className={classes.company_list_box}>
-                    {company_list.map((company) => (
-                        <ul>
-                            <li>
-                                <Link key={company.id} to={`/report/${company.id}/`} style={{color: '#424242' }}>                                  
-                                    <dic className={classes.company_link}>
-                                        {company.company_number} {company.company_name}
-                                    </dic>                                 
-                                </Link>
-                            </li>
-                        </ul>
-                    ))}
+                    <div className={classes.company_list_box}>
+                        {company_list.map((company) => (
+                            <ul>
+                                <li>
+                                    <Link key={company.id} to={`/report/${company.id}/`} style={{color: '#424242' }}>                                  
+                                        <dic className={classes.company_link}>
+                                            {company.company_number} {company.company_name}
+                                        </dic>                                 
+                                    </Link>
+                                </li>
+                            </ul>
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>

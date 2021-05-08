@@ -48,8 +48,7 @@ const App_bar = () => {
   return (
     <div className={classes.all}>
       <div className={classes.header}>
-        <img src={footer_logo} className={classes.header_logo}/>
-        
+        <img src={footer_logo} className={classes.header_logo}/> 
         <div className={classes.menu_header}>
           {/* 画面が広い時 */}
           {links_info.map((link) => (
@@ -61,11 +60,10 @@ const App_bar = () => {
               </Link>
             </div>
           ))}
-
           {/* # 画面が狭い時 */}
           <div className={classes.narrow_header_url}>
             <Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-              <MenuIcon/>
+              <MenuIcon style={{fontSize: '40px'}}/>
             </Button>
             <Menu
               id="simple-menu"

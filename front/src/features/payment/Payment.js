@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import classes from './Payment.module.css'
 import {CardElement, useElements, useStripe} from "@stripe/react-stripe-js";
 import ApiService from "./api";
+import Button from '@material-ui/core/Button';
 
 const Payment = () => {
     const [error, setError] = useState(null);
@@ -41,20 +42,24 @@ const Payment = () => {
             <div className={classes.head}>
                 決済
             </div>
-            <form onSubmit={handleSubmit} className="stripe-form">
-                <div className="form-row">
-                    <label htmlFor="email">Email Address</label>
-                    <input className="form-input" id="email" name="name" type="email" placeholder="jenny.rosen@example.com" required 
-                    value={email} onChange={(event) => { setEmail(event.target.value)}} />
+            <form onSubmit={handleSubmit} className={classes.form_all}>
+                <div className={classes.email_all}>
+                    <div htmlFor="email">Email Address</div>
+                    <input className={classes.email_input} id="email" name="name" type="email" 
+                     placeholder="jenny.rosen@example.com" required 
+                     value={email} onChange={(event) => { setEmail(event.target.value)}} 
+                    />
                 </div>
-                <div className="form-row">
+                <div className={classes.credit_all}>
                     <label for="card-element">Credit or debit card</label> 
-                    <CardElement id="card-element" onChange={handleChange}/>
+                    <CardElement id="card-element" onChange={handleChange} className={classes.card}/>
                     <div className="card-errors" role="alert">{error}</div>
                 </div>
-                <button type="submit" className="submit-btn">
-                Submit Payment
-                </button>
+                <div className={classes.button_all}>
+                    <Button type="submit" className="submit-btn" variant="contained" color="primary">
+                        Submit Payment
+                    </Button>
+                </div>
             </form>
         </div>
     )
