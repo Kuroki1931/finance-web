@@ -10,8 +10,11 @@ import Payment from './features/payment/Payment';
 import Register from './features/register/Register';
 import Report from './features/report/Report';
 import Login from './features/login/Login';
+import {Elements} from '@stripe/react-stripe-js';
+import {loadStripe} from "@stripe/stripe-js/pure";
 
 
+const stripePromise = loadStripe("");
 
 function App() {
   return (
@@ -24,7 +27,9 @@ function App() {
           <Route exact path='/report/*/' component={Report}/>
           <Route exact path='/login/' component={Login}/>
           <Route exact path='/register/' component={Register}/>
-          <Route exact path='/register/payment/' component={Payment}/>
+          <Elements stripe={stripePromise}>
+              <Route exact path='/register/payment/' component={Payment}/>
+          </Elements>
           <Footer />
         </Router>
     </div>
