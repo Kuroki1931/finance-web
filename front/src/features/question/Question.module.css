@@ -7,7 +7,7 @@
     width: 100%;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 1000px) {
     .head_font {
         position: absolute;
         top:40%;
@@ -17,7 +17,7 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
     .head_font {
         border-bottom: solid 2px black;
         margin: 10px;

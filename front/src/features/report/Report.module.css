@@ -7,17 +7,18 @@
     width: 100%;
 }
 
-@media (min-width: 700px) {
+@media (min-width: 1000px) {
     .head_font {
         position: absolute;
         top:40%;
         left: 10%;
+        color: #fff;
         font-size: 60px;
         font-weight: 200;
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 1000px) {
     .head_font {
         border-bottom: solid 2px black;
         margin: 10px;
@@ -29,8 +30,13 @@
     margin: 40px 20px 20px 20px;
 }
 
+.search_bar {
+    margin: 20px;
+    display: flex;
+}
+
 .target_company_box{
-    margin: 15px;
+    margin: 50px 15px 20px 15px;
 }
 
 .target_company_name{
@@ -55,13 +61,12 @@
     color: red;
 }
 
-.company_list_box{
-    margin: 20px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
 @media (min-width: 600px) {
+    .company_list_box{
+        margin: 20px 50px 20px 50px;
+        display: flex;
+        flex-wrap: wrap;
+    }
     .company_link {
         width: 200px;
         height: 80px;
@@ -71,6 +76,11 @@
 }
 
 @media (max-width: 600px) {
+    .company_list_box{
+        margin: 20px 10px 20px 10px;
+        display: flex;
+        flex-wrap: wrap;
+    }
     .company_link {
         width: 270px;
         height: 50px;
@@ -80,7 +90,9 @@
 }
 
 .company_link:hover {
-    color: deeppink;
+    color: #666666;
+    background-color: #f0f0f0;
+    transition: background-color 1s,
 }
 
 .company_num {

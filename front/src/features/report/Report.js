@@ -62,13 +62,12 @@ const Report = (props) => {
                 <div className={classes.head_font}>企業レポート</div>
             </div>
             <div className={classes.body_all}>
-                <div>
+                <div className={classes.search_bar}>
                     <Search_bar company_list={company_list}/>
                 </div>
-                <div>
+                <div className={classes.search_bar}>
                     <Search_bar_name company_list={company_list}/>
                 </div>
-                
                 <div>
                     <div className={classes.target_company_box}>
                     <div className={classes.target_company_name}>{company.company_name} {company.company_number} </div>

@@ -34,7 +34,6 @@ const Search_bar = ({company_list}) => {
 
     return (
         <div className={classes.search_bar_head}>
-        　番号検索
             <Autocomplete
                 inputValue={inputValue}
                 onInputChange={(event, newInputValue) => {
@@ -43,7 +42,7 @@ const Search_bar = ({company_list}) => {
                 id="controllable-states-demo"
                 options={options}
                 
-                renderInput={(params) => <TextField {...params}/>}
+                renderInput={(params) => <TextField {...params} label="Code"/>}
                 classes={{
                     root: styles.inputRoot,
                     input: styles.inputInput,

@@ -1,8 +1,8 @@
 .all {
+  background-color: #fff;
 }
 
 .footer_box {
-  background-color: black;
   display: flex;
   padding: 20px;
 }
@@ -17,16 +17,17 @@
 }
 
 .top_font {
-  color:coral
+border-bottom: solid 1px;
 }
 
 .link_font {
-  color: #fff;
   font-size: 12px;
 }
 
 .link_font:hover {
-  color: deeppink;
+  color: #666666;
+  background-color: #f0f0f0;
+  transition: background-color 1s,
 }
 
 

@@ -29,7 +29,7 @@ function App() {
       url: '/how_read/',
     },
     {
-      title: '会社概要',
+      title: '東大金融会とは',
       url: '/',
     },
     {
