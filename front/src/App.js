@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './App.css';
 import App_bar from './features/app_bar/App_bar';
 import Footer from './features/footer/Footer';
-import Question from './features/question/Question';
 import How_read from './features/how_read/How_read';
 import Our_company from './features/our_company/Our_company';
 import Payment from './features/payment/Payment';
@@ -33,10 +32,6 @@ function App() {
       url: '/',
     },
     {
-      title: 'お問い合わせ',
-      url: '/question/',
-    },
-    {
       title: 'ログイン',
       url: '/login/',
     },
@@ -50,7 +45,6 @@ function App() {
         <Router>
           <FinanceContext.Provider value={{links_info}}>
             <App_bar />
-            <Route exact path='/question/' component={Question}/>
             <Route exact path='/how_read/' component={How_read}/>
             <Route exact path='/' component={Our_company}/>
             <Route exact path='/report/*/' component={Report}/>

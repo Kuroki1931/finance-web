@@ -4,20 +4,23 @@
 
 .footer_box {
   display: flex;
-  padding: 20px;
+  justify-content:space-between;
+  margin: auto;
+  width: 360px;
 }
 
 .logo {
-  width: 200px;
+  width: 100px;
   margin: 5px;
 }
 
-.about_us_box {
+.each_box {
   margin: 10px;
 }
 
 .top_font {
 border-bottom: solid 1px;
+font-size: 16px;
 }
 
 .link_font {
