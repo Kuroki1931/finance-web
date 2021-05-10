@@ -77,7 +77,7 @@ const Report = (props) => {
                                     シンプルベーシックレポート
                                 </div>
                                 <div className={classes.report_box}>
-                                    <a href={basic_report[0].pdf}>{basic_report[0].regist_date.slice(0, 10)}{basic_report[0].pdf_title}</a>
+                                    <a href={basic_report[0].pdf}>{basic_report[0].regist_date.slice(0, 10)}</a>
                                     <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
                                         <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
                                     </Button>
@@ -90,7 +90,7 @@ const Report = (props) => {
                                     ディープレポート
                                 </div>
                                 <div className={classes.report_box}>
-                                    <a href={deep_report[0].pdf}>{deep_report[0].regist_date.slice(0, 10)}{deep_report[0].pdf_title}</a>
+                                    <a href={deep_report[0].pdf}>{deep_report[0].regist_date.slice(0, 10)}</a>
                                     <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
                                         <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
                                     </Button>
@@ -104,7 +104,7 @@ const Report = (props) => {
                                 </div>
                                 {short_report.map((each_pdf) => (
                                     <div key={each_pdf.id} className={classes.report_box}>
-                                        <a href={each_pdf.pdf}>{each_pdf.regist_date.slice(0, 10)}{each_pdf.pdf_title}</a>
+                                        <a href={each_pdf.pdf}>{each_pdf.regist_date.slice(0, 10)}</a>
                                         <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
                                             <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
                                         </Button>

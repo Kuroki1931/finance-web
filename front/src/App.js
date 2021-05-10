@@ -14,9 +14,9 @@ import {Elements} from '@stripe/react-stripe-js';
 import {loadStripe} from "@stripe/stripe-js/pure";
 import { createContext } from 'react';
 
-export const FinanceContext = createContext()
-
-
+const PK_TEST = process.env.REACT_APP_PK_TEST
+const stripePromise = loadStripe(String(PK_TEST));
+export const FinanceContext = createContext(PK_TEST)
 
 function App() {
   const links_info = [
@@ -41,7 +41,7 @@ function App() {
       url: '/login/',
     },
     {
-      title: '登録',
+      title: '会員登録',
       url: '/register/',
     },
   ]

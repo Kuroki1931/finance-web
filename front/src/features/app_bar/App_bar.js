@@ -23,7 +23,9 @@ const App_bar = () => {
   return (
     <div className={classes.all}>
       <div className={classes.header}>
-        <img src={logo} className={classes.header_logo}/> 
+        <Link to='/report/' style={{textDecoration: 'none', color: 'black'}}>
+          <img src={logo} className={classes.header_logo}/> 
+        </Link>
         <div className={classes.menu_header}>
           {/* 画面が広い時 */}
           {links_info.map((link) => (
