@@ -54,7 +54,6 @@ MIDDLEWARE = [
 ]
 
 CORS_ORIGIN_WHITELIST = [
-    "http://utfinance.s3-website-ap-northeast-1.amazonaws.com",
     "http://localhost:3000",
 ]
 
