@@ -55,6 +55,8 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = [
     "http://localhost:3000",
+    "https://investmentreport.japanrethink.com"
+    
 ]
 
 ROOT_URLCONF = 'ut_back.urls'
