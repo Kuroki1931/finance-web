@@ -8,6 +8,7 @@ import Search_bar_name from './Search_bar_name';
 import Button from '@material-ui/core/Button';
 import head_icon from './street.jpeg'
 import Card from '@material-ui/core/Card';
+import {HashLink} from 'react-router-hash-link'
 
 
 import {
@@ -61,12 +62,16 @@ const Report = (props) => {
                 <img src={head_icon} className={classes.head_icon}/>
                 <div className={classes.head_font}>企業レポート</div>
             </div>
-            <div className={classes.body_all}>
-                <div className={classes.search_bar}>
-                    <Search_bar company_list={company_list}/>
-                </div>
-                <div className={classes.search_bar}>
-                    <Search_bar_name company_list={company_list}/>
+            <div id="piyo" className={classes.body_all}>
+                <div className={classes.info_box}>
+                    <div className={classes.search_box}>
+                        <div className={classes.search_bar}>
+                            <Search_bar company_list={company_list}/>
+                        </div>
+                        <div className={classes.search_bar}>
+                            <Search_bar_name company_list={company_list}/>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <div className={classes.target_company_box}>
@@ -77,7 +82,7 @@ const Report = (props) => {
                                     シンプルベーシックレポート
                                 </div>
                                 <div className={classes.report_box}>
-                                    <a href={basic_report[0].pdf}>{basic_report[0].regist_date.slice(0, 10)}</a>
+                                    <a href={'https' + basic_report[0].pdf.slice(4)}>{basic_report[0].regist_date.slice(0, 10)}</a>
                                     <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
                                         <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
                                     </Button>
@@ -90,7 +95,7 @@ const Report = (props) => {
                                     ディープレポート
                                 </div>
                                 <div className={classes.report_box}>
-                                    <a href={deep_report[0].pdf}>{deep_report[0].regist_date.slice(0, 10)}</a>
+                                    <a href={'https' + deep_report[0].pdf.slice(4)}>{deep_report[0].regist_date.slice(0, 10)}</a>
                                     <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
                                         <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
                                     </Button>
@@ -100,11 +105,11 @@ const Report = (props) => {
                         {short_report != 0 &&
                             <div>
                                 <div className={classes.report_head}>
-                                    ショートレポート
+                                    アドホックレポート
                                 </div>
                                 {short_report.map((each_pdf) => (
                                     <div key={each_pdf.id} className={classes.report_box}>
-                                        <a href={each_pdf.pdf}>{each_pdf.regist_date.slice(0, 10)}</a>
+                                        <a href={'https' + each_pdf.pdf.slice(4)}>{each_pdf.regist_date.slice(0, 10)}</a>
                                         <Button variant="contained" color="primary" style={{marginLeft: '30px'}}>
                                             <a href='https://docs.google.com/forms/d/e/1FAIpQLSdeCHL6DYzxUk333QPV7yn0vn1yAh0vkGOvJECTmR7i232XKQ/viewform?usp=sf_link'　style={{color: '#fff'}}>質問する</a>
                                         </Button>
@@ -118,15 +123,31 @@ const Report = (props) => {
                     </div>
                     <div className={classes.company_list_box}>
                         {company_list.map((company) => (       
-                            <Link key={company.id} to={`/report/${company.id}/`} style={{textDecoration: 'none'}}>                                  
+                            <HashLink key={company.id} to={`/report/${company.id}/#piyo`} style={{textDecoration: 'none'}}>                                  
                                 <Card className={classes.company_link}>
                                     <div className={classes.company_num}>{company.company_number}</div>
                                     <div>{company.company_name}</div>
                                 </Card>                                 
-                            </Link>
+                            </HashLink>
                         ))}
                     </div>
                 </div>
+                <div className={classes.update_box}>
+                        <div className={classes.update_head}>
+                            レポートアップデート情報
+                        </div>
+                        <div className={classes.update_info_box}>
+                            <div className={classes.error}>
+                                {error}
+                            </div>
+                            {pdf_list.slice(-4).reverse().map((pdf) => (
+                                <div className={classes.update_each_box}>
+                                    <div>{pdf.regist_date.slice(0, 10)}</div>
+                                    <a href={'https' + pdf.pdf.slice(4)}>{pdf.pdf_title}</a>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
             </div>
         </div>
     )

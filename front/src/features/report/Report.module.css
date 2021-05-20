@@ -32,8 +32,8 @@
 
 .search_bar {
     margin: 20px;
-    display: flex;
 }
+
 
 .target_company_box{
     margin: 50px 15px 20px 15px;
@@ -61,6 +61,29 @@
     color: red;
 }
 
+.update_box {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 50px;
+    width: 285px;
+    margin: auto;
+}
+
+.update_head {
+    background-color: burlywood;
+    padding: 7px;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.update_info_box {
+    margin: 10px;
+}
+
+.update_each_box {
+    margin: 15px;
+}
+
 @media (min-width: 600px) {
     .company_list_box{
         margin: 20px 50px 20px 50px;
@@ -77,13 +100,12 @@
 
 @media (max-width: 600px) {
     .company_list_box{
-        margin: 20px 10px 20px 10px;
+        margin: 20px 10px 20px -5px;
         display: flex;
         flex-wrap: wrap;
     }
     .company_link {
-        width: 270px;
-        height: 50px;
+        width: 290px;
         margin: 5px;
         padding: 20px;
     }

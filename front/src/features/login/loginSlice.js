@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const apiUrl = "http://localhost:8000/";
+const ENDPOINT = process.env.REACT_APP_ENDPOINT
+const apiUrl = String(ENDPOINT);
 
 export const fetchAsyncLogin = createAsyncThunk("login/post", async (auth) => {
   const res = await axios.post(`${apiUrl}authen/jwt/create`, auth, {

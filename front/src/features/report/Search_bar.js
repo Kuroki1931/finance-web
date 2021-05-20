@@ -3,6 +3,7 @@ import Autocomplete from '@material-ui/lab/Autocomplete';
 import { fade, makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import classes from "./Search_bar.module.css";
+import {HashLink} from 'react-router-hash-link';
 
 const useStyles = makeStyles((theme) => ({
     inputRoot: {
@@ -52,7 +53,7 @@ const Search_bar = ({company_list}) => {
                 onKeyPress={e => {
                     if (e.key == 'Enter') {
                     e.preventDefault()
-                    window.location.href = `/report/${company_name_id[inputValue]}/`
+                    window.location.href = `/report/${company_name_id[inputValue]}/#piyo`
                 }}}
             />   
         </div>

@@ -1,5 +1,6 @@
 import axios from "axios";
-export const API_URL ='http://localhost:8000'
+const ENDPOINT = process.env.REACT_APP_ENDPOINT;
+export const API_URL = String(ENDPOINT);
 
 export const api = axios.create({
   baseURL: API_URL,
@@ -10,6 +11,6 @@ export const api = axios.create({
 
 export default class ApiService{
   static saveStripeInfo(data={}){
-    return api.post(`${API_URL}/api/save-stripe-info/`, data)
+    return api.post(`${API_URL}api/save-stripe-info/`, data)
   }
 }

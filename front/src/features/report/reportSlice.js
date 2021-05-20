@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const apiUrl = "http://localhost:8000/";
+const ENDPOINT = process.env.REACT_APP_ENDPOINT
+const apiUrl = String(ENDPOINT);
 
 export const fetchAsyncPDF_listGet = createAsyncThunk("pdf_list/get", async (token) => {
     const res = await axios.get(`${apiUrl}api/pdf/`, {
@@ -61,7 +62,12 @@ const pdfSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(fetchAsyncPDF_listGet.fulfilled, (state, action) => {
-          state.pdf_list = action.payload;
+          state.pdf_list = action.payload.sort(function(a,b){
+            if(a.regist_date<b.regist_date) return -1;
+            if(a.regist_date > b.regist_date) return 1;
+            return 0;
+          });;
+          console.log(state.pdf_list)
           state.error = '';
         });
         builder.addCase(fetchAsyncPDF_listGet.rejected, (state, action) => {

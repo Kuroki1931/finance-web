@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from "@material-ui/core/Button";
 import { useSelector, useDispatch } from "react-redux";
 import { withCookies } from 'react-cookie';
@@ -14,11 +14,15 @@ import {
   selectIsLoginView,
 } from "./loginSlice";
 
+const ENDPOINT = process.env.REACT_APP_ENDPOINT
+const apiUrl = String(ENDPOINT);
+
 const Login = (props) => {
     const dispatch = useDispatch();
     const authen = useSelector(selectAuthen);
     const isLoginView = useSelector(selectIsLoginView);
     const btnDisabler1 = authen.email === "" || authen.password === "";
+    const [error, setError] = useState('')
 
 
     const login = async () => {
@@ -27,6 +31,9 @@ const Login = (props) => {
 
             if (fetchAsyncLogin.fulfilled.match(result)) {
                 props.cookies.set("current-token", result.payload.access, {maxAge: 3600, path: '/'});
+                setError('')
+            } else {
+                setError('ログイン情報が間違っています')
             }
         } else {
             // const result = await dispatch(fetchAsyncRegister(authen));
@@ -62,7 +69,8 @@ const Login = (props) => {
                     onChange={(e) => dispatch(editPassword(e.target.value))}
                     required
                 />
-                <a href='http://localhost:8000/accounts/password_reset_form/' className={styles.forget_pas}>Forget password</a>
+                <div style={{color: 'red'}}>{error}</div>
+                <a href={`${apiUrl}accounts/password_reset_form/`} className={styles.forget_pas}>Forget password</a>
                 <div className={styles.switch}>
                 <Button
                     variant="contained"
